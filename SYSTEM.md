@@ -91,8 +91,7 @@ This is the flow for P1, P2, and any P0 paper assigned to a single person.
 2. Copy the right template (`templates/p0-card.md`, `p1-card.md`, or `p2-note.md`) into `evidence/<slug>.md` on that branch.
 3. Read, fill it in, commit as you go — the commit history doesn't need to be tidy, this isn't what matters later.
 4. Push the branch.
-5. **P0:** open a pull request. Someone else reviews it against the checks in "Keeping each other honest," then merges.
-6. **P1 / P2:** push straight to `main` — no PR needed. For P2 specifically, skip the branch too — a direct commit to `main` is fine.
+5. **P0 / P1 / P2:** open a pull request. Someone else reviews it against the checks in "Keeping each other honest," then merges.
 7. Once it's on `main`, `papers.csv` picks up the new status and decision (see "One-time setup" below for making this automatic).
 8. Delete the branch.
 
@@ -114,15 +113,6 @@ Two readers means two branches, kept apart on purpose so neither can see or over
 A card isn't frozen once it's merged. If a later paper or an actual experiment changes what we think, that's a normal edit: branch off `main`, update `evidence/<slug>.md`, small PR, merge — with one line added at the top noting what changed and why, instead of quietly overwriting the old claim, so we can see our own understanding shift over the year, not just its current state.
 
 Priority and status changes work the same way but skip the ceremony — one field in one file is small enough to commit straight to `main`.
-
-## One-time setup, so this runs itself
-
-Worth setting up once, in week one, instead of maintaining by hand all year:
-
-- **Branch protection on `main`** for the `evidence/` folder, requiring at least one approving review before a P0 merge — so that review step can't quietly get skipped under deadline pressure.
-- **A GitHub Action that runs `build_index.py` on every push to `main`** and commits the updated `papers.csv` back automatically — so the searchable list never needs a manual update and never drifts out of sync with what's actually in `evidence/`.
-
-If neither is set up yet, don't block on it — read and submit by hand in the meantime, just know it's the first thing to fix once someone has an hour.
 
 ## How much time this should take
 
